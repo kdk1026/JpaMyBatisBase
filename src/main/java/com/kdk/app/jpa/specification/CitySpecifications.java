@@ -37,7 +37,7 @@ public class CitySpecifications {
         };
     }
 
-    public static Specification<City> hasPopulationGreaterThan(Integer population) {
+    public static Specification<City> hasPopulationGreaterThanOrEqualTo(Integer population) {
         return new Specification<City>() {
 
 			private static final long serialVersionUID = 1L;

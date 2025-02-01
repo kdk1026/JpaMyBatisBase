@@ -79,7 +79,7 @@ public class CityServiceImpl implements CityService {
 
         Specification<City> spec = Specification
                 .where(CitySpecifications.hasCountryCode(vo.getCountryCode()))
-                .and(CitySpecifications.hasPopulationGreaterThan(vo.getPopulation()));
+                .and(CitySpecifications.hasPopulationGreaterThanOrEqualTo(vo.getPopulation()));
 
         return cityRepository.findAll(spec, pageable);
 	}
