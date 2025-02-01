@@ -27,6 +27,7 @@ import lombok.ToString;
 public class City {
 
 	@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private Integer id;
 
