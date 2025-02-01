@@ -29,18 +29,24 @@ public class CitySpecifications {
 
 			@Override
             public Predicate toPredicate(Root<City> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				if ( countryCode == null || countryCode.isEmpty() || countryCode.isBlank() ) {
+					return cb.conjunction();
+				}
                 return cb.equal(root.get("countryCode"), countryCode);
             }
         };
     }
 
-    public static Specification<City> hasPopulationGreaterThan(int population) {
+    public static Specification<City> hasPopulationGreaterThan(Integer population) {
         return new Specification<City>() {
 
 			private static final long serialVersionUID = 1L;
 
 			@Override
             public Predicate toPredicate(Root<City> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				if ( population == null ) {
+					return cb.conjunction();
+				}
                 return cb.greaterThanOrEqualTo(root.get("population"), population);
             }
         };

@@ -23,6 +23,6 @@ public class CityParamVo {
 	private int currentPage;
 	private int pageSize;
 	private String countryCode;
-	private int population;
+	private Integer population;
 
 }
