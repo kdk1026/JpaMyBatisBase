@@ -3,6 +3,7 @@ package com.kdk.app.jpa.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import com.kdk.app.jpa.entity.City;
@@ -18,7 +19,7 @@ import com.kdk.app.jpa.entity.City;
  *
  * @author kdk
  */
-public interface CityRepository extends JpaRepository<City, Integer> {
+public interface CityRepository extends JpaRepository<City, Integer>, JpaSpecificationExecutor<City> {
 
     /**
      * city 테이블명이 아닌 Entity 클래스명

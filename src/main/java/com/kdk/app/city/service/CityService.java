@@ -3,6 +3,9 @@ package com.kdk.app.city.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+
+import com.kdk.app.city.service.vo.CityParamVo;
 import com.kdk.app.jpa.entity.City;
 
 /**
@@ -18,7 +21,7 @@ import com.kdk.app.jpa.entity.City;
  */
 public interface CityService {
 
-	public List<City> findAl();
+	public List<City> findAll();
 
 	public Optional<City> findById(Integer id);
 
@@ -29,5 +32,9 @@ public interface CityService {
 	public int getNextId();
 
 	public List<City> findByCountryCode(String countryCode);
+
+	public Page<City> findAllCities(int page, int size);
+
+	public Page<City> findCitiesByCriteria(CityParamVo vo);
 
 }
