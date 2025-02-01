@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 
 import com.kdk.app.city.service.CityService;
-import com.kdk.app.city.service.vo.CityParamVo;
+import com.kdk.app.city.vo.CityParamVo;
 import com.kdk.app.jpa.entity.City;
 
 /**

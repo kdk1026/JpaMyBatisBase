@@ -1,4 +1,4 @@
-package com.kdk.app.city.service.vo;
+package com.kdk.app.city.vo;
 
 import lombok.Getter;
 import lombok.Setter;
