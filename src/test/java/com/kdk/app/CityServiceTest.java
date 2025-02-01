@@ -71,10 +71,12 @@ public class CityServiceTest {
 
 		Page<City> cityPage = cityService.findAllCities(currentPage, pageSize);
 
-		System.out.println(cityPage.get());
+		List<City> cityList = cityPage.getContent();
+
+		System.out.println(cityList.size());
 		System.out.println("Total Pages: " + cityPage.getTotalPages());
 	    System.out.println("Total Elements: " + cityPage.getTotalElements());
-	    System.out.println("Current Page Number: " + cityPage.getNumber());
+	    System.out.println("Current Page Number: " + (cityPage.getNumber() + 1));
 	    System.out.println("Number of Elements on Current Page: " + cityPage.getNumberOfElements());
 	}
 
@@ -89,6 +91,7 @@ public class CityServiceTest {
 		Page<City> cityPage = cityService.findCitiesByCriteria(vo);
 
 		List<City> cityList = cityPage.getContent();
+
 		System.out.println(cityList.size());
 	}
 
