@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kdk.app.citycountry.mapper.CityCountryMapper">
+
+	<select id="selectCityCountry" resultType="com.kdk.app.citycountry.vo.CityCountryVo">
+		/* CityCountryMapper.selectCityCountry */
+		SELECT a.Name AS name
+				, a.CountryCode AS countryCode
+				, a.District AS district
+				, a.Population AS population
+				, b.Name AS countryName
+				, b.Continent AS continent
+				, b.Region AS region
+				, b.SurfaceArea AS surfaceArea
+				, b.IndepYear AS indepYear
+				, b.Population AS countryPopulation
+				, b.LifeExpectancy AS lifeExpectancy
+				, b.GNP AS gnp
+				, b.GNPOld AS gnpOld
+				, b.LocalName AS localName
+				, b.GovernmentForm AS governmentForm
+				, b.HeadOfState AS headOfState
+				, b.Capital AS capital
+				, b.Code2 AS code2
+		  FROM city a
+		  INNER JOIN country b
+		    ON a.CountryCode = b.Code
+	</select>
+
+</mapper>

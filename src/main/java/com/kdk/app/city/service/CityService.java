@@ -1,0 +1,33 @@
+package com.kdk.app.city.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.kdk.app.jpa.entity.City;
+
+/**
+ * <pre>
+ * -----------------------------------
+ * 개정이력
+ * -----------------------------------
+ * 2025. 2. 1. kdk	최초작성
+ * </pre>
+ *
+ *
+ * @author kdk
+ */
+public interface CityService {
+
+	public List<City> findAl();
+
+	public Optional<City> findById(Integer id);
+
+	public City save(City city);
+
+	public void removeById(Integer id);
+
+	public int getNextId();
+
+	public List<City> findByCountryCode(String countryCode);
+
+}
