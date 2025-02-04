@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 
 /**
  * <pre>
@@ -50,13 +48,6 @@ public class MyBatisConfig {
     @Bean
     SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
 		return new SqlSessionTemplate(sqlSessionFactory);
-	}
-
-    @Bean
-    PlatformTransactionManager myBatisTransactionManager(DataSource dataSource) {
-    	DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
-        transactionManager.setDefaultTimeout(30);
-		return transactionManager;
 	}
 
 }

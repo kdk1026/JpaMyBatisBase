@@ -53,7 +53,7 @@ public class JpaTransactionAspect {
 		private RuleBasedTransactionAttribute readOnlyTransactionRule () {
 			RuleBasedTransactionAttribute readOnly = new RuleBasedTransactionAttribute();
 			readOnly.setReadOnly(true);
-			readOnly.setPropagationBehavior(TransactionDefinition.PROPAGATION_SUPPORTS);
+			readOnly.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			return readOnly;
 		}
 

@@ -32,9 +32,9 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 @Aspect
 public class MyBatisTransactionAspect {
 
-	private static final String AOP_TRANSACTION_EXPRESSION = "execution(* com.kdk.app.mybatis.**..impl.*Impl.*(..))";
+	private static final String AOP_TRANSACTION_EXPRESSION = "execution(* com.kdk.app.**..impl.*Impl.*(..))";
 
-	@Qualifier("myBatisTransactionManager")
+	@Qualifier("transactionManager")
 	@Autowired
 	private TransactionManager transactionManager;
 
@@ -53,7 +53,7 @@ public class MyBatisTransactionAspect {
 	private RuleBasedTransactionAttribute readOnlyTransactionRule () {
 		RuleBasedTransactionAttribute readOnly = new RuleBasedTransactionAttribute();
 		readOnly.setReadOnly(true);
-		readOnly.setPropagationBehavior(TransactionDefinition.PROPAGATION_SUPPORTS);
+		readOnly.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 		return readOnly;
 	}
 

@@ -5,7 +5,6 @@ import javax.sql.DataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -22,7 +21,6 @@ import com.zaxxer.hikari.HikariDataSource;
  * @author 김대광
  */
 @Configuration
-@EnableTransactionManagement
 public class DatasourceConfig {
 
     @Bean

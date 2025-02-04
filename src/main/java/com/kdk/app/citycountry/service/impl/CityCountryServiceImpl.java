@@ -21,7 +21,7 @@ import com.kdk.app.citycountry.vo.CityCountryVo;
  *
  * @author kdk
  */
-@Transactional(transactionManager = "myBatisTransactionManager")
+@Transactional(transactionManager = "transactionManager")
 @Service
 public class CityCountryServiceImpl implements CityCountryService {
 
