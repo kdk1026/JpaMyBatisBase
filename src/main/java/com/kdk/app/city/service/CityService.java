@@ -37,4 +37,6 @@ public interface CityService {
 
 	public Page<City> findCitiesByCriteria(CityParamVo vo);
 
+	public void modify(City modifyCity);
+
 }

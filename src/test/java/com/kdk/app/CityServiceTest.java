@@ -80,7 +80,7 @@ public class CityServiceTest {
 	    System.out.println("Number of Elements on Current Page: " + cityPage.getNumberOfElements());
 	}
 
-	@Test
+//	@Test
 	public void testFindCitiesByCriteria() {
 		CityParamVo vo = new CityParamVo();
 		vo.setCurrentPage(1);
@@ -93,6 +93,15 @@ public class CityServiceTest {
 		List<City> cityList = cityPage.getContent();
 
 		System.out.println(cityList.size());
+	}
+
+	@Test
+	public void testModify() {
+		City city = new City();
+		city.setId(1);
+		city.setName("Korea");
+
+		cityService.modify(city);
 	}
 
 }

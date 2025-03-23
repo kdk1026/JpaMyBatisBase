@@ -2,6 +2,7 @@ package com.kdk.app.city.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import com.kdk.app.city.service.CityService;
 import com.kdk.app.city.vo.CityParamVo;
@@ -84,6 +86,36 @@ public class CityServiceImpl implements CityService {
                 .and(CitySpecifications.hasPopulationGreaterThanOrEqualTo(vo.getPopulation()));
 
         return cityRepository.findAll(spec, pageable);
+	}
+
+	@Override
+	public void modify(City modifyCity) {
+		City city = cityRepository.findById(modifyCity.getId()).orElseThrow(new Supplier<RuntimeException>() {
+
+			@Override
+			public RuntimeException get() {
+				return new RuntimeException("City not found");
+			}
+
+		});
+
+		if ( !ObjectUtils.isEmpty(modifyCity.getName()) ) {
+			city.setName(modifyCity.getName());
+		}
+
+		if ( !ObjectUtils.isEmpty(modifyCity.getCountryCode()) ) {
+			city.setCountryCode(modifyCity.getCountryCode());
+		}
+
+		if ( !ObjectUtils.isEmpty(modifyCity.getDistrict()) ) {
+			city.setDistrict(modifyCity.getDistrict());
+		}
+
+		if ( !ObjectUtils.isEmpty(modifyCity.getPopulation()) && modifyCity.getPopulation() > 0 ) {
+			city.setPopulation(modifyCity.getPopulation());
+		}
+
+		cityRepository.save(city);
 	}
 
 }
