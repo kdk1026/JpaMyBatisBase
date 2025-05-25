@@ -6,7 +6,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,9 +33,11 @@ public class JpaTransactionAspect {
 
 	private static final String AOP_TRANSACTION_EXPRESSION = "execution(* com.kdk.app.**..impl.*Impl.*(..))";
 
-	@Qualifier("jpaTransactionManager")
-	@Autowired
-	private TransactionManager jpaTransactionManager;
+	private final TransactionManager jpaTransactionManager;
+
+	public JpaTransactionAspect(@Qualifier("jpaTransactionManager") TransactionManager jpaTransactionManager) {
+		this.jpaTransactionManager = jpaTransactionManager;
+	}
 
 	private static final String[] DEFAULT_READ_ONLY_METHOD_RULE_TRANSACTION_ATTRIBUTES = {
 			"select*",

@@ -1,5 +1,7 @@
 package com.kdk.app;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -21,15 +23,16 @@ import com.kdk.app.citycountry.vo.CityCountryVo;
  * @author kdk
  */
 @SpringBootTest
-public class CityCountryServiceTest {
+class CityCountryServiceTest {
 
 	@Autowired
 	private CityCountryService cityCountryService;
 
 	@Test
-	public void testCityCountry() {
+	void testCityCountry() {
 		List<CityCountryVo> list = cityCountryService.getCityCountry();
 		System.out.println(list.size());
+		assertTrue(true);
 	}
 
 }

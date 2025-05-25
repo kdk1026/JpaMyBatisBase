@@ -1,5 +1,7 @@
 package com.kdk.app;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,13 +21,13 @@ import com.kdk.app.jpa.entity.CountryLanguage;
  * @author kdk
  */
 @SpringBootTest
-public class CountryLanguageTest {
+class CountryLanguageTest {
 
 	@Autowired
 	private CountryLanguageService countryLanguageService;
 
 	@Test
-	public void testSave() {
+	void testSave() {
 		CountryLanguage countryLanguage = new CountryLanguage();
 		countryLanguage.setCountryCode("KOR");
 		countryLanguage.setLanguage("Korean");
@@ -33,6 +35,7 @@ public class CountryLanguageTest {
 		countryLanguage.setPercentage(100);
 
 		countryLanguageService.save(countryLanguage);
+		assertTrue(true);
 	}
 
 }

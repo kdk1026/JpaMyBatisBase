@@ -2,7 +2,6 @@ package com.kdk.config.app.jpa;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,8 +27,11 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 )
 public class JpaConfig {
 
-	@Autowired
-	private DataSource dataSource;
+	private final DataSource dataSource;
+
+	public JpaConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	@Bean
     LocalContainerEntityManagerFactoryBean entityManagerFactory(

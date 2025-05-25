@@ -2,7 +2,6 @@ package com.kdk.app.citycountry.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +24,11 @@ import com.kdk.app.citycountry.vo.CityCountryVo;
 @Service
 public class CityCountryServiceImpl implements CityCountryService {
 
-	@Autowired
-	private CityCountryMapper cityCountryMapper;
+	private final CityCountryMapper cityCountryMapper;
+
+	public CityCountryServiceImpl(CityCountryMapper cityCountryMapper) {
+		this.cityCountryMapper = cityCountryMapper;
+	}
 
 	@Override
 	public List<CityCountryVo> getCityCountry() {

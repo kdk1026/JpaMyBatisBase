@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,8 +34,11 @@ import com.kdk.app.jpa.specification.CitySpecifications;
 @Service
 public class CityServiceImpl implements CityService {
 
-	@Autowired
-	private CityRepository cityRepository;
+	private final CityRepository cityRepository;
+
+	public CityServiceImpl(CityRepository cityRepository) {
+		this.cityRepository = cityRepository;
+	}
 
 	@Override
 	public List<City> findAll() {

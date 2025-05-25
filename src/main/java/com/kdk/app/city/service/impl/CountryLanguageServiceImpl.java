@@ -1,6 +1,5 @@
 package com.kdk.app.city.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +22,11 @@ import com.kdk.app.jpa.repository.CountryLanguageRepository;
 @Service
 public class CountryLanguageServiceImpl implements CountryLanguageService {
 
-	@Autowired
-	private CountryLanguageRepository countryLanguageRepository;
+	private final CountryLanguageRepository countryLanguageRepository;
+
+	public CountryLanguageServiceImpl(CountryLanguageRepository countryLanguageRepository) {
+		this.countryLanguageRepository = countryLanguageRepository;
+	}
 
 	@Override
 	public CountryLanguage save(CountryLanguage countryLanguage) {
