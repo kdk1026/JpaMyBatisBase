@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import com.kdk.app.jpa.entity.CountryLanguage;
+import com.kdk.app.jpa.idclass.CountryLanguagePk;
 
  /**
  * <pre>
@@ -16,6 +17,6 @@ import com.kdk.app.jpa.entity.CountryLanguage;
  *
  * @author kdk
  */
-public interface CountryLanguageRepository extends JpaRepository<CountryLanguage, Integer>, JpaSpecificationExecutor<CountryLanguage> {
+public interface CountryLanguageRepository extends JpaRepository<CountryLanguage, CountryLanguagePk>, JpaSpecificationExecutor<CountryLanguage> {
 
 }
